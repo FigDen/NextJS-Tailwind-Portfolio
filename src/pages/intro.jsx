@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -15,7 +16,11 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
+          Get started by editing <code>src/page/*</code>
+          <br></br>
+          You have multiple pages to edit. We recommend using components.
+          <br></br>
+          This is based off <Link className='underline' href="https://github.com/vercel/next-learn/tree/master/basics/learn-starter">NextJS Create App</Link> with some reformatting and tailwind
         </p>
 
         <div className={styles.grid}>

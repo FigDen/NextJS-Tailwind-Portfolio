@@ -1,1 +1,1 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+Open Source Portfolio that uses NextJS with Tailwind
