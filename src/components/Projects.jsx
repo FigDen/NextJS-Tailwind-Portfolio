@@ -1,6 +1,6 @@
-import Image from "next/image"
 import { useState } from "react"
 import { AppConfig } from "./AppConfig"
+import { SmallCard, BigCard } from "./Card"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Projects() {
@@ -55,23 +55,21 @@ function Projects() {
             detailHeight = 'transition-all duration-500 ease-in-out overflow-hidden max-h-full'
         }
         return (
-            <div onClick={() => handleOpenCard(index)} className={`transition-all duration-300 ease-in-out relative basis-1/4 flex flex-col justify-between m-4 p-4 rounded-lg ${backgroundColor} hover:bg-violet-400 cursor-pointer`} key={index}>
-                <div>
-                    <h1 className="text-slate-900 font-bold">{project.name}</h1>
-                    {/* <i class="fa-solid fa-up-right-and-down-left-from-center"></i> */}
-                </div>
-                <div className={`${detailHeight}`}>
-                    <p>test detailsa solid asdfjhgasdflh ljhasdfl jhasdflhasb fljsbfh alsjfhbalsjdfhbal jhbflashdbf asldbfasf</p>
-                    {/* <p className={`${detailsHidden}`}>{project.description}</p> */}
-                </div>
-                <Image
-                    src={project.image} 
-                    alt={`${project.name} picture`}
-                    width={300}
-                    height={300}
-                />
-                {/* <p className={`${detailsHidden}`}>{project.link}</p> */}
-            </div>
+            <>
+                {openedCard === index ? (
+                    <>
+                    <div onClick={() => handleOpenCard(index)} className="fixed inset-0 z-50 bg-gray-900 bg-opacity-50 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+                        <BigCard project={project} />
+                    </div>
+                    </>
+                ) : (
+                    <div onClick={() => handleOpenCard(index)} className={`transition-all duration-300 ease-in-out relative w-full max-w-sm mx-auto my-4 p-4 rounded-lg ${backgroundColor} hover:bg-violet-400 cursor-pointer shadow-md`}>
+                        <SmallCard project={project} />
+                    </div>
+                )}
+            </>
+
+
         )
     })
     return (
